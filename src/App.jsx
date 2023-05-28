@@ -1,20 +1,19 @@
 import { useState } from 'react';
 import Counter from './Counter';
 import Card from './card/Card';
-import Carlos from './card/Carlos';
 import StopWatch from './StopWatch';
 
 function App() {
   const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
   const [colored, setColored] = useState('#FFFFFF');
 
-  function handleClick() {
+  setTimeout(() => {
     let hexColor = '#';
     for (let i = 0; i < 6; i++) {
       hexColor += hex[getRandomNumber()];
     }
     setColored((document.body.style.backgroundColor = hexColor));
-  }
+  }, 2000);
 
   function getRandomNumber() {
     return Math.floor(Math.random() * hex.length);
@@ -38,17 +37,16 @@ function App() {
           <h2>
             background color : <span>{colored}</span>
           </h2>
-          <button
+          {/* <button
             onClick={handleClick}
             className="btn btn-outline-dark fw-bold"
           >
             Click me
-          </button>
+          </button> */}
         </div>
       </main>
       <Counter />
       <Card />
-      <Carlos />
       <StopWatch />
     </div>
   );

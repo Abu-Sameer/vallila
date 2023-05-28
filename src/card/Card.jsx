@@ -11,9 +11,7 @@ export default function Card() {
             With supporting text below as a natural lead-in to additional
             content.
           </p>
-          <a href="#/" className="btn btn-primary">
-            Go somewhere
-          </a>
+          <div className="btn btn-primary">Go somewhere</div>
         </div>
         <div className="card-footer text-body-secondary">2 days ago</div>
       </div>
