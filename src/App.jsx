@@ -2,27 +2,28 @@ import { useState } from 'react';
 import Counter from './Counter';
 import Card from './card/Card';
 import StopWatch from './StopWatch';
+import Parent from './contextss/Parent';
 
 function App() {
   const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
   const [colored, setColored] = useState('#FFFFFF');
 
-  setTimeout(() => {
+  function handleClick() {
     let hexColor = '#';
     for (let i = 0; i < 6; i++) {
       hexColor += hex[getRandomNumber()];
     }
     setColored((document.body.style.backgroundColor = hexColor));
-  }, 2000);
+  }
 
   function getRandomNumber() {
     return Math.floor(Math.random() * hex.length);
   }
 
   return (
-    <div className="container-fluid">
-      <div className="container">
-        <h4>Color flipper</h4>
+    <div className="container-fluid mb-5">
+      <div className="container text-center">
+        <h2>Color flipper</h2>
         <ul className=" navbar bg-light rounded shadow px-4 d-flex justify-content-between">
           <li>
             <a href="index">Simple</a>
@@ -35,19 +36,22 @@ function App() {
       <main>
         <div className="container">
           <h2>
-            background color : <span>{colored}</span>
+            Background color{' '}
+            <span>
+              <button
+                onClick={handleClick}
+                className="btn btn-outline-dark fw-bold"
+              >
+                Change BG: {colored}
+              </button>
+            </span>
           </h2>
-          {/* <button
-            onClick={handleClick}
-            className="btn btn-outline-dark fw-bold"
-          >
-            Click me
-          </button> */}
         </div>
       </main>
       <Counter />
       <Card />
       <StopWatch />
+      <Parent />
     </div>
   );
 }
